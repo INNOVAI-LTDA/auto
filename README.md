@@ -1,75 +1,131 @@
-# Client System Template
+# AUTO Framework
 
-Template full-stack para sistemas web customizaveis por cliente, com foco em:
+Repositório inicial do **AUTO Framework**, uma proposta de linha produtiva de software guiada por IA, com separação visual e operacional entre:
 
-- execucao local reprodutivel;
-- transicao local -> deploy remoto por configuracao;
-- arquitetura modular;
-- dados sensiveis;
-- manutencao recorrente;
-- escala moderada por cliente, na faixa de centenas ate poucos milhares de usuarios.
+- **AUTO Commercial**: portal do cliente/stakeholder, focado em solicitação, status, dúvidas, entregas e aprovação.
+- **AUTO Industrial**: cockpit interno da fábrica, focado em linha produtiva, artefatos, agentes, testes, findings, telemetria, custos e evidências.
 
-## Arquitetura proposta
+## Visão do produto
 
-**Monolito modular customizavel por cliente**:
+O AUTO nasce como uma fábrica de produção de software orientada por artefatos, eventos e métricas cruas.
 
-- `apps/web`: front-end React/Vite/TypeScript;
-- `apps/api`: back-end FastAPI/Python;
-- `config/clients`: configuracoes por cliente;
-- `infra/local`: ambiente local com Docker Compose;
-- `infra/deploy`: receitas de deploy por provedor;
-- `scripts`: comandos operacionais padronizados;
-- `docs`: decisoes, arquitetura e operacao.
+A frase-guia:
 
-## Regra principal
+> Cliente vê progresso. Operação vê evidência. Gestão vê aprendizado. Governança ajusta a fábrica.
 
-Local e producao devem ser o mesmo sistema com configuracoes diferentes.
+## Objetivos iniciais
 
-Nao altere codigo para sair do local e ir para remoto. Altere variaveis de ambiente, secrets, URLs, banco e configuracoes de deploy.
+- Capturar pedidos de forma estruturada.
+- Gerar uma Ordem de Produção a partir da entrada do cliente/stakeholder.
+- Produzir artefatos versionados ao longo da linha produtiva.
+- Testar artefatos antes da implementação.
+- Decompor trabalho em tarefas atômicas.
+- Executar tarefas com apoio de IA/Codex.
+- Registrar eventos, métricas cruas, custos e intervenções humanas.
+- Apoiar validação humana com `MAN-override` e retorno para automático com `AUTO-engaged`.
+- Preparar base futura para análise organizacional e teoria dos jogos.
 
-## Inicio rapido
+## Stack-alvo
 
-```bash
-cp .env.example .env
-python scripts/env_check.py --env-file .env
-python scripts/dev.py --client cliente-demo
-```
-
-## Contrato de ambiente minimo
-
-```env
-APP_ENV=local
-DEPLOY_TARGET=local
-CLIENT_CODE=cliente-demo
-DATABASE_URL=postgresql://app:app@localhost:5432/app
-API_BASE_URL=http://localhost:8000
-WEB_BASE_URL=http://localhost:5173
-CORS_ALLOWED_ORIGINS=http://localhost:5173
-JWT_SECRET=change-me-local
-STORAGE_BACKEND=local
-FILE_STORAGE_PATH=./storage
-```
-
-## Estrutura
+### Backend
 
 ```text
-client-system-template/
-  apps/
-    api/
-    web/
-  config/
-    clients/
-    environments/
-  infra/
-    local/
-    deploy/
-    database/
-  scripts/
-  docs/
+Python
+FastAPI
+PostgreSQL
+Redis
+Workers Python
+WebSocket / Server-Sent Events
 ```
 
-## Quando usar este template
+### Frontend
 
-Use para sistemas por cliente com alta customizacao, dados sensiveis e necessidade de manutencao controlada.
+```text
+TypeScript
+Next.js
+Tailwind CSS
+shadcn/ui
+React Flow
+TanStack Table
+ECharts / Recharts
+Monaco Editor
+```
 
-Evite usar como base para produto multi-tenant massivo ou arquitetura de microservicos desde o dia zero.
+## Estrutura planejada
+
+```text
+auto/
+  apps/
+    client-portal/      # Portal Commercial
+    factory-cockpit/    # Cockpit Industrial
+
+  services/
+    api/                # FastAPI
+    orchestrator/       # Orquestração da linha produtiva
+    agents/             # Agentes AUTO
+
+  packages/
+    ui/                 # Componentes compartilhados
+    schemas/            # Schemas e contratos
+    sdk/                # Client SDK para APIs
+
+  docs/
+    ui/                 # Direção visual e navegação
+    architecture/       # Arquitetura conceitual
+    database/           # Banco de dados e telemetria
+    production-line/    # Linha produtiva e casos de uso
+```
+
+## Temas visuais
+
+### AUTO Commercial
+
+Interface clara, comercial e confiável para o cliente.
+
+```text
+Navy:   #071E41
+Orange: #FF9600
+White:  #FFFFFF
+Off:    #F7F9FB
+```
+
+### AUTO Industrial
+
+Interface operacional, densa e rastreável para a fábrica.
+
+```text
+Background: #0B172A
+Panel:      #101F36
+Signal:     #2FB7D3
+Action:     #FF9600
+Success:    #67C587
+Fault:      #E45757
+```
+
+## Lifecycle stages
+
+```text
+DSG — Design
+LAB — Laboratório experimental
+TST — Teste / homologação
+PRD — Produção interna
+CLI — Cliente externo
+```
+
+## Eventos de controle
+
+```text
+MAN-override — humano assume controle manual
+AUTO-engaged — linha retorna ao modo automático
+```
+
+## Estado atual
+
+Este repositório está em fase inicial de estruturação.
+
+O primeiro objetivo prático é criar um MVP navegável com:
+
+- Portal Commercial com solicitação, status e aprovação.
+- Cockpit Industrial com linha produtiva, execução IA e qualidade pré-código.
+- Backend FastAPI com endpoints mockados.
+- Documentação de identidade visual e arquitetura.
