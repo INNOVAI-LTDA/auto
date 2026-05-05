@@ -1,0 +1,121 @@
+:root {
+  --auto-bg: #0B172A;
+  --auto-panel: #101F36;
+  --auto-panel-strong: #071E41;
+  --auto-border: #1F3554;
+  --auto-text: #F4F8FB;
+  --auto-muted: #9CADBE;
+  --auto-cyan: #2FB7D3;
+  --auto-teal: #17A398;
+  --auto-green: #67C587;
+  --auto-amber: #FFB13B;
+  --auto-orange: #FF9600;
+  --auto-red: #E45757;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--auto-bg);
+  color: var(--auto-text);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.industrial-shell {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 260px 1fr;
+  background: radial-gradient(circle at top right, rgba(47, 183, 211, 0.10), transparent 28%), var(--auto-bg);
+}
+
+.sidebar {
+  border-right: 1px solid var(--auto-border);
+  background: rgba(3, 20, 43, 0.92);
+  padding: 24px;
+}
+
+.brand {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--auto-text);
+}
+
+.brand span {
+  color: var(--auto-orange);
+}
+
+.nav-link {
+  display: block;
+  padding: 12px 14px;
+  margin-top: 10px;
+  border: 1px solid var(--auto-border);
+  border-radius: 14px;
+  color: var(--auto-muted);
+}
+
+.nav-link:hover {
+  color: var(--auto-text);
+  border-color: var(--auto-cyan);
+}
+
+.main {
+  padding: 28px;
+}
+
+.panel {
+  border: 1px solid var(--auto-border);
+  background: rgba(16, 31, 54, 0.88);
+  border-radius: 22px;
+  padding: 20px;
+}
+
+.grid-3 {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.grid-2 {
+  display: grid;
+  grid-template-columns: 1.3fr 0.7fr;
+  gap: 18px;
+}
+
+.signal {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  border-radius: 999px;
+  padding: 7px 10px;
+  font-size: 12px;
+  font-weight: 800;
+  background: rgba(47, 183, 211, 0.12);
+  color: var(--auto-cyan);
+}
+
+.signal.ok {
+  background: rgba(103, 197, 135, 0.12);
+  color: var(--auto-green);
+}
+
+.signal.warn {
+  background: rgba(255, 177, 59, 0.12);
+  color: var(--auto-amber);
+}
+
+.signal.fault {
+  background: rgba(228, 87, 87, 0.12);
+  color: var(--auto-red);
+}
+
+.muted {
+  color: var(--auto-muted);
+}
