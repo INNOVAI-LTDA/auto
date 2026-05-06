@@ -1,46 +1,7 @@
-export default function ApprovalPage() {
-  return (
-    <main className="commercial-shell">
-      <header className="commercial-header">
-        <div className="commercial-brand">AUTO<span>.</span></div>
-        <span className="status-pill">Entrega e aprovacao</span>
-      </header>
+import Link from 'next/link'
 
-      <section className="commercial-main">
-        <div className="grid-2">
-          <div className="card">
-            <h1>Entrega pronta para revisao</h1>
-            <p className="muted">
-              Revise o pacote entregue e escolha aprovar ou solicitar ajustes.
-            </p>
+const Sidebar=()=> (<aside className="portal-sidebar"><div className="portal-logo">AUTO<span>.</span></div><p style={{opacity:.85}}>Portal do Cliente</p><nav className="portal-nav"><Link href="/">Visao geral</Link><Link href="/request" className="">Nova solicitacao</Link><Link href="/status" className="">Status</Link><Link href="/approval" className="active">Aprovacao</Link></nav></aside>)
 
-            <div style={{ display: 'grid', gap: 12, marginTop: 24 }}>
-              <div className="status-pill">Resumo funcional</div>
-              <div className="status-pill">Ambiente de validacao</div>
-              <div className="status-pill">Relatorio de entrega</div>
-            </div>
-          </div>
-
-          <aside className="card">
-            <h2>Acoes</h2>
-            <button className="button-primary" style={{ width: '100%', marginBottom: 12 }}>
-              Aprovar entrega
-            </button>
-            <button
-              style={{
-                width: '100%',
-                border: '1px solid var(--auto-border)',
-                background: 'white',
-                borderRadius: 14,
-                padding: 12,
-                fontWeight: 700,
-              }}
-            >
-              Solicitar ajustes
-            </button>
-          </aside>
-        </div>
-      </section>
-    </main>
-  )
+export default function Page(){
+return <main className="commercial-shell"><Sidebar/><section className="commercial-main"><header className="commercial-header"><strong>Entregas e Aprovação</strong><span className="status-pill">AUTO Framework</span></header><div className="grid-2"><div className="card"><h1>Entregas e Aprovação</h1><p className="muted">Valide artefatos e decida aprovar ou ajustar</p></div><aside className="card"><h3>Resumo</h3><p className="muted">Tela adaptada ao novo visual comercial baseado nos anexos.</p><button className="button-primary">Continuar</button></aside></div></section></main>
 }
