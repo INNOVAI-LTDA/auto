@@ -1,45 +1,36 @@
 import Link from 'next/link'
 
+function Sidebar(){
+  return (
+    <aside className="portal-sidebar">
+      <div className="portal-logo">AUTO<span>.</span></div>
+      <p style={{opacity:.85}}>Portal do Cliente</p>
+      <nav className="portal-nav">
+        <Link href="/" className="active">Visao geral</Link>
+        <Link href="/request">Nova solicitacao</Link>
+        <Link href="/status">Status da solicitacao</Link>
+        <Link href="/approval">Entregas e aprovacao</Link>
+      </nav>
+    </aside>
+  )
+}
+
 export default function HomePage() {
   return (
     <main className="commercial-shell">
-      <header className="commercial-header">
-        <div className="commercial-brand">AUTO<span>.</span></div>
-        <nav style={{ display: 'flex', gap: 16, color: 'var(--auto-muted)', fontWeight: 700 }}>
-          <Link href="/request">Nova solicitacao</Link>
-          <Link href="/status">Status</Link>
-          <Link href="/approval">Aprovacao</Link>
-        </nav>
-      </header>
-
+      <Sidebar />
       <section className="commercial-main">
+        <header className="commercial-header">
+          <strong>Plataforma de Gestao Comercial</strong>
+          <span className="status-pill">Em andamento</span>
+        </header>
         <div className="grid-2">
           <div className="card">
-            <span className="status-pill">Portal Commercial</span>
-            <h1 style={{ fontSize: 48, lineHeight: 1.05, marginBottom: 16 }}>
-              Solicite, acompanhe e aprove entregas guiadas por IA.
-            </h1>
-            <p className="muted" style={{ fontSize: 18, lineHeight: 1.6 }}>
-              Uma experiencia clara para transformar necessidades de negocio em ordens de producao
-              rastreaveis dentro do AUTO Framework.
-            </p>
-            <div style={{ marginTop: 28, display: 'flex', gap: 12 }}>
-              <Link className="button-primary" href="/request">Criar solicitacao</Link>
-              <Link className="status-pill" href="/status">Ver status</Link>
-            </div>
+            <h1 style={{fontSize:52,margin:'10px 0'}}>3/3 Entregas e Aprovação</h1>
+            <p className="muted">Revise os artefatos, acompanhe o status e aprove o pacote com total rastreabilidade.</p>
+            <div style={{marginTop:18,display:'flex',gap:10}}><Link className="button-primary" href="/approval">Aprovar pacote</Link><Link className="card" href="/status" style={{padding:'10px 14px'}}>Ver status</Link></div>
           </div>
-
-          <aside className="card">
-            <h2>Fluxo do cliente</h2>
-            <ol className="muted" style={{ lineHeight: 2 }}>
-              <li>Nova solicitacao</li>
-              <li>Entendimento inicial</li>
-              <li>Planejamento tecnico</li>
-              <li>Construcao</li>
-              <li>Validacao</li>
-              <li>Aprovacao</li>
-            </ol>
-          </aside>
+          <aside className="card"><h3>Ciclo V-BOUNCE</h3><ol className="muted" style={{lineHeight:2}}><li>Descoberta</li><li>Estrategia</li><li>Construcao</li><li>Validacao</li><li>Implantacao</li></ol></aside>
         </div>
       </section>
     </main>

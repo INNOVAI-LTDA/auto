@@ -1,48 +1,7 @@
-export default function StatusPage() {
-  const steps = [
-    'Solicitacao recebida',
-    'Entendimento em elaboracao',
-    'Planejamento tecnico',
-    'Em construcao',
-    'Em validacao',
-    'Pronto para entrega',
-  ]
+import Link from 'next/link'
 
-  return (
-    <main className="commercial-shell">
-      <header className="commercial-header">
-        <div className="commercial-brand">AUTO<span>.</span></div>
-        <span className="status-pill">Status da solicitacao</span>
-      </header>
+const Sidebar=()=> (<aside className="portal-sidebar"><div className="portal-logo">AUTO<span>.</span></div><p style={{opacity:.85}}>Portal do Cliente</p><nav className="portal-nav"><Link href="/">Visao geral</Link><Link href="/request" className="">Nova solicitacao</Link><Link href="/status" className="active">Status</Link><Link href="/approval" className="">Aprovacao</Link></nav></aside>)
 
-      <section className="commercial-main">
-        <div className="card">
-          <h1>App de cadastro de clientes</h1>
-          <p className="muted">Acompanhe o progresso da sua solicitacao em linguagem simples.</p>
-
-          <div style={{ display: 'grid', gap: 14, marginTop: 28 }}>
-            {steps.map((step, index) => (
-              <div
-                key={step}
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  gap: 14,
-                  padding: 16,
-                  border: '1px solid var(--auto-border)',
-                  borderRadius: 18,
-                  background: index <= 2 ? 'rgba(103,197,135,0.10)' : 'white',
-                }}
-              >
-                <strong style={{ color: index <= 2 ? 'var(--auto-success)' : 'var(--auto-muted)' }}>
-                  {String(index + 1).padStart(2, '0')}
-                </strong>
-                <span>{step}</span>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-    </main>
-  )
+export default function Page(){
+return <main className="commercial-shell"><Sidebar/><section className="commercial-main"><header className="commercial-header"><strong>Status da Solicitação</strong><span className="status-pill">AUTO Framework</span></header><div className="grid-2"><div className="card"><h1>Status da Solicitação</h1><p className="muted">Acompanhe etapas e pendencias</p></div><aside className="card"><h3>Resumo</h3><p className="muted">Tela adaptada ao novo visual comercial baseado nos anexos.</p><button className="button-primary">Continuar</button></aside></div></section></main>
 }
