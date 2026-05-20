@@ -1,0 +1,13 @@
+README.md
+pyproject.toml
+app/__init__.py
+app/main.py
+app/routers/__init__.py
+app/routers/health.py
+app/routers/ui_mock.py
+app/schemas/ui.py
+auto_api.egg-info/PKG-INFO
+auto_api.egg-info/SOURCES.txt
+auto_api.egg-info/dependency_links.txt
+auto_api.egg-info/requires.txt
+auto_api.egg-info/top_level.txt
